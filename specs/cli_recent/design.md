@@ -1,5 +1,5 @@
 # Design — cli_recent
-
+ POrque hacemos un cambio
 > Decisiones técnicas para implementar el comando `recent`. Apoyado en
 > `docs/architecture.md` y `docs/conventions.md`. Solo se documentan los
 > puntos donde la feature roza la frontera de esas reglas.

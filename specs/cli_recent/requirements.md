@@ -6,6 +6,8 @@
 > Cada requirement está redactado en EARS estricto y es verificable por al
 > menos un test concreto en `tests/test_cli.py`.
 
+este cambio hay q meterlo
+
 ## R1
 CUANDO el usuario ejecuta `python -m src.cli recent` sin pasar `--limit`,
 el sistema DEBE imprimir como máximo 5 notas en stdout.
