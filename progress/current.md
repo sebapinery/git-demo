@@ -17,4 +17,4 @@ _—_
 
 ## Próximo paso
 
-_—_
+Arrancar feature 2 (`task_data_layer`) cuando el usuario lo indique.

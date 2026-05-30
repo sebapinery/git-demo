@@ -21,17 +21,16 @@
 
 ## C3 — El código respeta la arquitectura
 
-- [ ] `src/` solo contiene los módulos previstos en `docs/architecture.md`.
-- [ ] No hay dependencias externas en `requirements.txt` (debe estar vacío
-      o no existir).
-- [ ] No hay `print()` sueltos para debug, ni TODOs sin contexto.
+- [ ] `src/` solo contiene los módulos previstos en `docs/architecture.md`
+      (app/, lib/, models/, repositories/, types/, components/).
+- [ ] No hay `console.log` sueltos para debug, ni TODOs sin contexto.
+- [ ] Los imports usan alias `@/` (no rutas relativas `../../`).
 
 ## C4 — La verificación es real
 
-- [ ] `tests/` tiene al menos un test por módulo de `src/`.
-- [ ] Los tests usan `tempfile.TemporaryDirectory()`, no mocks de fs.
-- [ ] `python3 -m unittest discover -s tests -v` muestra > 0 tests
-      y todos verdes.
+- [ ] `tests/` tiene al menos un test por feature `done` con `sdd: true`.
+- [ ] `python3 -m pytest tests/ -v` muestra > 0 tests y todos verdes.
+- [ ] Los tests verifican comportamiento real (no solo que el archivo existe).
 
 ## C5 — La sesión se cerró bien
 

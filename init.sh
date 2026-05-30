@@ -20,20 +20,19 @@ EXIT_CODE=0
 
 echo "── 1. Verificando entorno ─────────────────────────────"
 
-# Python disponible
+# Python disponible (requerido para tests estructurales con pytest)
 if ! command -v python3 >/dev/null 2>&1; then
-  fail "python3 no está instalado"
+  fail "python3 no está instalado (necesario para tests estructurales)"
   exit 1
 fi
 ok "python3 -> $(python3 --version)"
 
-# Versión mínima 3.9 (dataclasses + typing moderno)
-PY_VERSION_OK=$(python3 -c 'import sys; print(int(sys.version_info >= (3, 9)))')
-if [ "$PY_VERSION_OK" != "1" ]; then
-  fail "Se requiere Python >= 3.9"
+# pytest disponible
+if ! python3 -m pytest --version >/dev/null 2>&1; then
+  fail "pytest no está instalado: pip install pytest"
   exit 1
 fi
-ok "Versión de Python compatible"
+ok "pytest -> $(python3 -m pytest --version 2>&1 | head -1)"
 
 echo ""
 echo "── 2. Verificando archivos base del arnés ──────────────"
@@ -91,15 +90,15 @@ if [ $? -ne 0 ]; then EXIT_CODE=1; fi
 echo ""
 echo "── 4. Ejecutando tests ─────────────────────────────────"
 
-if [ -d "tests" ]; then
-  if python3 -m unittest discover -s tests -v 2>&1; then
+if [ -d "tests" ] && ls tests/test_*.py >/dev/null 2>&1; then
+  if python3 -m pytest tests/ -v 2>&1; then
     ok "Todos los tests pasan"
   else
     fail "Hay tests rotos"
     EXIT_CODE=1
   fi
 else
-  warn "Carpeta tests/ no existe todavía"
+  warn "No hay tests todavía en tests/"
 fi
 
 echo ""

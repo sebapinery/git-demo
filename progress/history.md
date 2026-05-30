@@ -52,6 +52,18 @@
 - **Verificación:** `./init.sh` verde, 22 tests pasan. Reviewer APPROVED (`progress/review_cli_edit.md`).
 - **Cierre:** feature 6 marcada `done`. Todas las features del proyecto completadas.
 
+## 2026-05-30 — Pivot del proyecto: CLI Python → Fullstack Next.js
+- **Agente:** Claude Sonnet 4.6 (leader)
+- **Cambios:** `feature_list.json` reescrito — eliminadas 11 features del CLI Python, añadidas 5 features del task manager fullstack (Next.js 14 + MongoDB + Docker Compose). Todas `pending` con `sdd: true`.
+- **Cierre:** pivot completado. Próximo: feature 1 (project_scaffold).
+
+## 2026-05-30 — Feature 1 (nueva): project_scaffold
+- **Agente:** Claude Sonnet 4.6 (leader) → spec_author → implementer → reviewer (x2).
+- **Plan:** scaffold base del proyecto Next.js 14 + Docker Compose + MongoDB: Dockerfile multi-stage, docker-compose.yml con servicios nextjs/mongodb, estructura src/, src/lib/mongodb.ts.
+- **Cambios:** `package.json`, `tsconfig.json`, `next.config.ts`, `Dockerfile`, `.dockerignore`, `.env.example`, `docker-compose.yml`, `src/app/layout.tsx`, `src/app/page.tsx`, `src/lib/mongodb.ts`, directorios src/ con .gitkeep, `tests/test_project_scaffold.py` (17 tests estructurales, R1–R18).
+- **Verificación:** 17/17 tests pasan. Reviewer APPROVED (segunda pasada tras añadir tests).
+- **Cierre:** feature 1 marcada `done`. Próximo: feature 2 (task_data_layer).
+
 ## 2026-05-13 — Feature 7: cli_recent
 - **Agente:** Claude Opus 4.7 (leader) → spec_author → implementer → reviewer.
 - **Plan:** ejecutar las 8 tasks de `specs/cli_recent/tasks.md`: añadir `cmd_recent` y subparser `recent` en `src/cli.py`, cubrir R1–R7 con tests, validar trazabilidad y `./init.sh`.
