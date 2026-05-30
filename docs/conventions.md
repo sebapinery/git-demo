@@ -5,9 +5,6 @@
 
 ## Estilo Python
 
-
-
-
 - **Versión:** Python 3.9+ (sintaxis `list[str]` permitida).
 - **Formato:** PEP 8. Líneas máximo 100 caracteres.
 - **Imports:** stdlib primero, luego locales. Una línea por módulo.
